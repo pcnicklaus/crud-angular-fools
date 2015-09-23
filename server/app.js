@@ -6,14 +6,28 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var swig = require('swig');
-
+var mongoose = require('mongoose');
 
 // *** routes *** //
 var routes = require('./routes/index.js');
 
 
+
 // *** express instance *** //
 var app = express();
+
+
+// *** mongoose connection *** //
+var config = require('./_config.js');
+
+mongoose.connect(config.mongoURI[app.settings.env],
+  function(err, data) {
+    if(err) {
+      console.log('Failed to connect to DB: '+err);
+    } else {
+      console.log('Success! Connect to:', config.mongoURI[app.settings.env]);
+    }
+  });
 
 
 // *** view engine *** //
