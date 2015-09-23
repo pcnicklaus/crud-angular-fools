@@ -31,9 +31,9 @@ mongoose.connect(config.mongoURI[app.settings.env],
 
 
 // *** view engine *** //
-var swig = new swig.Swig();
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
+// var swig = new swig.Swig();
+// app.engine('html', swig.renderFile);
+// app.set('view engine', 'html');
 
 
 // *** static directory *** //
@@ -49,6 +49,9 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 
 
 // *** main routes *** //
+app.get('/', function(req, res, next) {
+  res.sendFile(path.join(__dirname, '../client/public/', 'index.html'));
+});
 app.use('/', routes);
 
 
