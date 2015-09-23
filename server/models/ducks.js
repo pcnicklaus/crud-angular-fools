@@ -1,5 +1,5 @@
 var mongoose = require('mongoose-q')(require('mongoose',{spread:true}));
-var Schema = mongoose.schema;
+var Schema = mongoose.Schema;
 
 
 var duckSchema = new Schema( {
