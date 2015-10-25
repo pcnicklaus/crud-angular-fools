@@ -1,14 +1,16 @@
 angular.module('myApp')
-.factory('myFactory', ['$http', function($http) {
+
+.factory('myFactory', ['$http', function ($http) {
     var factory = {};
 
-    factory.postDuck = function(duck) {
-        return $http.post('/duck/' +duck.name+'/'+duck.age);
+    factory.postFool = function (fool) {
+        return $http.post('/fool/' + fool.name + '/' + fool.age);
 
     };
 
-    factory.getDucks = function() {
-        return $http.get('/ducks');
+    factory.getFools = function () {
+        return $http.get('/fools');
     };
     return factory;
+
 }]);
